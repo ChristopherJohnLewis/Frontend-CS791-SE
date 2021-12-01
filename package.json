@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~13.0.0-next.0",
     "@angular/router": "~13.0.0-next.0",
     "angular-in-memory-web-api": "~0.11.0",
+    "angular-plotly.js": "^4.0.4",
+    "plotly.js": "^2.6.4",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -32,6 +34,7 @@
     "@angular/compiler-cli": "~13.0.0-next.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "@types/plotly.js": "^1.54.17",
     "jasmine-core": "~3.10.0",
     "jasmine-marbles": "~0.8.3",
     "jasmine-spec-reporter": "~7.0.0",
