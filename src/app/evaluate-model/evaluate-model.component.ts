@@ -11,21 +11,33 @@ export class EvaluateModelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    var trace1 = {
+    var DataSource1 = {
       x: [1, 2, 3, 4],
       y: [10, 15, 13, 17],
-      type: 'scatter'
+      type: 'scatter',
+      name: 'Data Source 1'
     };
     
-    var trace2 = {
+    var DataSource2 = {
       x: [1, 2, 3, 4],
       y: [16, 5, 11, 9],
-      type: 'scatter'
+      type: 'scatter',
+      name: 'Data Source 2'
     };
     
-    var data = [trace1, trace2];
+    var data = [DataSource1, DataSource2];
     
-    Plotly.newPlot('Graph', data);
+    var layout = {
+      title: 'Sample Graph',
+      xaxis: {
+        title: 'X Axis Data',
+      },
+      yaxis: {
+        title: 'Y Axis Data',
+      }
+    };
+
+    Plotly.newPlot('Graph', data, layout);
   }
 
 }
