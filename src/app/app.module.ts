@@ -5,9 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { ViewModelComponent } from './view-model/view-model.component';
 import { CreateModelComponent } from './create-model/create-model.component';
@@ -30,9 +27,6 @@ import { SettingsComponent } from './settings/settings.component';
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent,
-    ProductAlertsComponent,
-    ProductDetailsComponent,
     AuthorsComponent,
     ViewModelComponent,
     CreateModelComponent,

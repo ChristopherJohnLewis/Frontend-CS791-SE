@@ -12,15 +12,15 @@ export class EvaluateModelComponent implements OnInit {
 
   ngOnInit(): void {
     var DataSource1 = {
-      x: [1, 2, 3, 4],
-      y: [10, 15, 13, 17],
+      x: [0.5679289102554321, 0.059667445719242096, 0.0524849072098732, 0.047633588314056396, 0.05572905391454697],
+      y: [0.0010944444220513105, 0.001438888837583363, 0.00559999980032444, 0.009427777491509914, 0.010905555449426174],
       type: 'scatter',
       name: 'Data Source 1'
     };
     
     var DataSource2 = {
-      x: [1, 2, 3, 4],
-      y: [16, 5, 11, 9],
+      x: [0.4950181841850281, 0.05495476350188255, 0.05163992941379547, 0.05056384205818176, 0.057103149592876434],
+      y: [0.00041666667675599456, 0.004022222012281418, 0.004749999847263098, 0.013144444674253464, 0.01693333312869072],
       type: 'scatter',
       name: 'Data Source 2'
     };
@@ -30,10 +30,10 @@ export class EvaluateModelComponent implements OnInit {
     var layout = {
       title: 'Sample Graph',
       xaxis: {
-        title: 'X Axis Data',
+        title: 'Validation Loss',
       },
       yaxis: {
-        title: 'Y Axis Data',
+        title: 'Validation Accuracy',
       }
     };
 

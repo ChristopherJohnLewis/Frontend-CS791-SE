@@ -1,7 +1,10 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+.nav-pills>li+li {
+    margin-left: 4px; 
+}
