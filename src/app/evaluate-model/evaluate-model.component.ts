@@ -11,10 +11,24 @@ declare const Plotly: any;
   templateUrl: './evaluate-model.component.html',
   styleUrls: ['./evaluate-model.component.css']
 })
+
 @Injectable()
 export class EvaluateModelComponent implements OnInit {
-
-  constructor(private http: HttpClient) { }
+  data:Array<any> = [];
+  layout:Object = {};
+  constructor(private http: HttpClient) {     
+    let data:Array<any> = [];
+    
+    this.layout = {
+      title: 'Sample Graph',
+      xaxis: {
+        title: 'Validation Loss',
+      },
+      yaxis: {
+        title: 'Validation Accuracy',
+      }
+    };
+  }
 
   ngOnInit(): void {
     var DataSource1 = {
@@ -30,20 +44,9 @@ export class EvaluateModelComponent implements OnInit {
       type: 'scatter',
       name: 'Data Source 2'
     };
-    
-    var data = [DataSource1, DataSource2];
-    
-    var layout = {
-      title: 'Sample Graph',
-      xaxis: {
-        title: 'Validation Loss',
-      },
-      yaxis: {
-        title: 'Validation Accuracy',
-      }
-    };
-
-    Plotly.newPlot('Graph', data, layout);
+    this.data.push(DataSource1);
+    this.data.push(DataSource2);
+    Plotly.newPlot('Graph', this.data, this.layout);
   }
 
 }
