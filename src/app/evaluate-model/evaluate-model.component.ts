@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
 declare const Plotly: any;
 
 @Component({
@@ -6,9 +11,10 @@ declare const Plotly: any;
   templateUrl: './evaluate-model.component.html',
   styleUrls: ['./evaluate-model.component.css']
 })
+@Injectable()
 export class EvaluateModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     var DataSource1 = {
