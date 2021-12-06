@@ -16,6 +16,10 @@ declare const Plotly: any;
 export class EvaluateModelComponent implements OnInit {
   data:Array<any> = [];
   layout:Object = {};
+  configUrl:String = 'assets/configurations/routes.json';
+  options:Object={};
+  foo:Number=1;
+  contents:any="test";
   constructor(private http: HttpClient) {     
     let data:Array<any> = [];
     
@@ -28,6 +32,21 @@ export class EvaluateModelComponent implements OnInit {
         title: 'Validation Accuracy',
       }
     };
+
+    this.options= {
+      responseType: 'json'
+    };
+    this.http.get('localhost:5001/result', this.options).subscribe(results => {this.contents = results;
+      console.log(results);
+    
+    });
+    //client.get('/foo', {responseType: 'text'})
+  }
+
+
+  getConfig() {
+    console.log(this.contents);    
+    return 'foo';
   }
 
   ngOnInit(): void {
@@ -46,6 +65,7 @@ export class EvaluateModelComponent implements OnInit {
     };
     this.data.push(DataSource1);
     this.data.push(DataSource2);
+    
     Plotly.newPlot('Graph', this.data, this.layout);
   }
 
