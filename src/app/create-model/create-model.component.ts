@@ -39,7 +39,16 @@ export class CreateModelComponent implements OnInit {
     console.log(this.data);
     console.log(this.library);
     console.log(this.epoch);
-    console.log("here now yall");
+    console.log("here now yall 21");
+    this.http.post('http://localhost:5000/runmodel', {
+      library: this.library,
+      data: this.data, // this will pull from a list of tensorflow datasets
+      epochs: this.epoch,
+      maxtrials: this.max_trials,
+      model_type: this.model_type, // 0 is classification, 1 is regression
+      tuner: this.tuner, // Accept values should be 'greedy', 'bayesian', 'hyperband', 'random' this is particular to autokeras
+      data_type: this.data_type // 0 is image, 1 is text, 2 is structured data
+    }).subscribe(data => {console.log(data);});
   }
 
   constructor(private http: HttpClient) { }
