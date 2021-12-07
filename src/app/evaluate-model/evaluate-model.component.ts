@@ -1,25 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ModelResult } from '../api-util/api-interfaces';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 declare const Plotly: any;
 
-interface ModelResult {
-  dataset_id: Number;
-  enddate: String;
-  fn: Array<Number>;
-  fp: Array<Number>;
-  tn: Array<Number>;
-  tp: Array<Number>;
-  model_id: Number;
-  result_id: Number;
-  train_acc: Array<number>;
-  train_loss: Array<number>;
-  valid_acc: Array<number>;
-  valid_loss: Array<number>;
-}
+
 
 
 @Component({

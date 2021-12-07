@@ -1,3 +1,53 @@
 <p>create-model works!</p>
 <!---Dropdowns for model settings-->
 <!---button for generating models-->
+
+
+<!--    
+    library: String;
+    data: String; // this will pull from a list of tensorflow datasets
+    datainput: String; // not used
+    datatarget: String; // not used
+    epochs: Number;
+    maxtrials: Number; 
+    model_type: Number; // 0 is classification, 1 is regression
+    seed: Number; 
+    tuner: String; // Accept values should be 'greedy', 'bayesian', 'hyperband', 'random' this is particular to autokeras
+    data_type: Number; // 0 is image, 1 is text, 2 is structured data
+-->
+<!--https://getbootstrap.com/docs/5.0/layout/grid/-->
+<div class="container">
+<div class="row row-cols-auto form-group">
+    <select class="form-select"  (change)='library = libraryid.value' #libraryid>
+        <option *ngFor="let lib of libraries" [value]='library' >{{lib}}</option>
+    </select>
+    <select class="form-select" (change)='data = datasetid.value' #datasetid>
+        <option *ngFor="let dataset of datasets" [ngValue]='data' >{{dataset}}</option>
+    </select>
+    <div class='input-group'>
+        <span class="input-group-text">Epochs</span>
+        <input class="form-control" type="number" value=10 [(ngModel)]='epoch'>
+    </div>
+    <div class='input-group'>  
+        <span class="input-group-text">Max Trials</span>  
+        <input class="form-control" type="number" value=100 [(ngModel)]='max_trials'>
+    </div>
+    <div class='input-group'>
+        <span class="input-group-text">Model Type</span>
+        <input class="form-control" type="number" value=0 [(ngModel)]='model_type'>
+    </div>
+    <div class='input-group'>
+        <span class="input-group-text">Tuner</span>
+        <input class="form-control" type="text" value='greedy' [(ngModel)]='tuner'>
+    </div>
+    <div class='input-group'>
+        <span class="input-group-text">Data Type</span>
+        <input class="form-control" type="number" value=0 [(ngModel)]='data_type'>
+    </div>
+    
+</div>
+</div>
+
+
+
+<button type="button" class="btn btn-primary" (click)="clicked()" >Primary</button>

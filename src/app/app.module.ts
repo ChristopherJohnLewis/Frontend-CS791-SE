@@ -11,6 +11,7 @@ import { ViewModelComponent } from './view-model/view-model.component';
 import { CreateModelComponent } from './create-model/create-model.component';
 import { EvaluateModelComponent } from './evaluate-model/evaluate-model.component';
 import { SettingsComponent } from './settings/settings.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { SettingsComponent } from './settings/settings.component';
       { path: 'createmodel', component: CreateModelComponent },
       { path: 'settings', component: SettingsComponent },
     ]),
+    FormsModule
   ],
   declarations: [
     AppComponent,
