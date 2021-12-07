@@ -19,21 +19,10 @@
 
 <div class='input-group'>
   <span class="input-group-text">Dataset ID</span>
-  <select class="form-select"  [(ngModel)]="dataset">
-    <option *ngFor="let dataset of datasets"  >{{dataset}}</option>
+  <select class="form-select"  [(ngModel)]="datasetID">
+    <option *ngFor="let dataset of datasets" [value]='dataset[0]'  >{{dataset[1]}}</option>
   </select>
 </div>
 
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="/createmodel">Something else here</a></li>
-    </ul>
-
-
-  </div>
+<button type="button" class="btn btn-primary" (click)="clicked()" >Test Button</button>
 

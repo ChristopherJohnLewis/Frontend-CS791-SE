@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateModelComponent implements OnInit {
 
   libraries: Array<string> = ["AutoKeras", "Auto-PyTorch"];
-  datasets: Array<string> = ['mnist', 'cats_vs_dogs', 'forrest_fires', 'wordnet'];
+  datasets: Array<string> = ['mnist', 'cats_vs_dogs', 'forest_fires', 'wordnet'];
 
   private _library: string ='AutoKeras';
   public lib: string ='';

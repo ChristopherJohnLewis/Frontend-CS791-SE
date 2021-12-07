@@ -72,6 +72,8 @@ export class EvaluateModelComponent implements OnInit {
   plot:any;
   datasets: any = [];
   dataset: string='mnist';
+  datasetID: number = 1;
+
   layout:object = {
     title: 'Sample Graph',
     xaxis: {
@@ -89,7 +91,7 @@ export class EvaluateModelComponent implements OnInit {
     this.options= {
       responseType: 'json'
     };
-    var test = this.http.get<ModelResult>('http://134.197.86.47:5001/result', this.options).subscribe(
+    var test = this.http.get<ModelResult>('http://134.197.86.47:5001/result?dataset_id='+this.datasetID, this.options).subscribe(
       data=>
       {
           this.contents=data;
@@ -114,6 +116,27 @@ export class EvaluateModelComponent implements OnInit {
   getConfig() {
     console.log(this.contents);    
     return 'foo';
+  }
+
+  clicked(){
+    console.log(this.datasetID);
+    var test = this.http.get<ModelResult>('http://134.197.86.47:5001/result?dataset_id='+this.datasetID, this.options).subscribe(
+      data=>
+      {
+          this.contents=data;
+          for (var datum of this.contents)
+          {
+            if (this.plot)
+            {
+              Plotly.addTraces('Graph',{y:datum.train_loss, type:'scatter', name: 'Data Source ' + datum.result_id})
+            }
+          }
+      },
+      error =>
+      {
+          console.log(error);
+      }
+    );
   }
 
   ngOnInit(): void {
