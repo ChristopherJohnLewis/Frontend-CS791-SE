@@ -27,9 +27,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css", "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["src/assets/Scripts/plotly.js"]
+            "scripts": ["src/assets/Scripts/plotly.js", "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", "node_modules/jquery/dist/jquery.min.js"]
           },
           "configurations": {
             "production": {
@@ -94,9 +94,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css", "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["src/assets/Scripts/plotly.js"]
+            "scripts": ["src/assets/Scripts/plotly.js", "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", "node_modules/jquery/dist/jquery.min.js"]
           }
         },
         "e2e": {

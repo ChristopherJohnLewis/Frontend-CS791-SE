@@ -6,6 +6,22 @@ import { catchError, retry } from 'rxjs/operators';
 
 declare const Plotly: any;
 
+interface ModelResult {
+  dataset_id: Number;
+  enddate: String;
+  fn: Array<Number>;
+  fp: Array<Number>;
+  tn: Array<Number>;
+  tp: Array<Number>;
+  model_id: Number;
+  result_id: Number;
+  train_acc: Array<number>;
+  train_loss: Array<number>;
+  valid_acc: Array<number>;
+  valid_loss: Array<number>;
+}
+
+
 @Component({
   selector: 'app-evaluate-model',
   templateUrl: './evaluate-model.component.html',
@@ -20,6 +36,7 @@ export class EvaluateModelComponent implements OnInit {
   options:Object={};
   foo:Number=1;
   contents:any="test";
+  plot:any;
   constructor(private http: HttpClient) {     
     let data:Array<any> = [];
     
@@ -36,10 +53,23 @@ export class EvaluateModelComponent implements OnInit {
     this.options= {
       responseType: 'json'
     };
-    this.http.get('localhost:5001/result', this.options).subscribe(results => {this.contents = results;
-      console.log(results);
-    
-    });
+    var test = this.http.get<ModelResult>('http://localhost:5001/result', this.options).subscribe(
+      data=>
+      {
+          this.contents=data;
+          for (var datum of this.contents)
+          {
+            if (this.plot)
+            {
+              Plotly.addTraces('Graph',{y:datum.train_loss, type:'scatter', name: 'Data Source ' + datum.result_id})
+            }
+          }
+      },
+      error =>
+      {
+          console.log(error);
+      }
+  );
     //client.get('/foo', {responseType: 'text'})
   }
 
@@ -50,7 +80,7 @@ export class EvaluateModelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var DataSource1 = {
+    /*var DataSource1 = {
       x: [0.5679289102554321, 0.059667445719242096, 0.0524849072098732, 0.047633588314056396, 0.05572905391454697],
       y: [0.0010944444220513105, 0.001438888837583363, 0.00559999980032444, 0.009427777491509914, 0.010905555449426174],
       type: 'scatter',
@@ -64,9 +94,9 @@ export class EvaluateModelComponent implements OnInit {
       name: 'Data Source 2'
     };
     this.data.push(DataSource1);
-    this.data.push(DataSource2);
+    this.data.push(DataSource2);*/
     
-    Plotly.newPlot('Graph', this.data, this.layout);
+    this.plot = Plotly.newPlot('Graph', this.data, this.layout);
   }
 
 }

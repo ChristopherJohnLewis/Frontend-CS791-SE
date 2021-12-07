@@ -18,7 +18,8 @@ export class AppComponent {
 
   constructor(private router: Router) {
     router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event);
+      setTimeout( () => {this.navigationInterceptor(event);}, 1000);
+      
     });
   }
 

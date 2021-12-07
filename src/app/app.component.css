@@ -14,9 +14,13 @@
   justify-content: center;
   cursor: wait !important;
 }
-.loading-screen i.fa.fa-spinner.fa-spin, .spinner-big {
-  font-size: 100px !important;
+.spinner-border {
+  /*font-size: 100px !important;*/
+  color: red;
+  width: 15rem;
+  height: 15rem;
 }
+
 
 
 /*
