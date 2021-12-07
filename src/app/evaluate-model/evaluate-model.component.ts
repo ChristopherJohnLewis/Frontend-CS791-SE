@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { ModelResult } from '../api-util/api-interfaces';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Xliff } from '@angular/compiler';
+import { update } from 'plotly.js';
 
 declare const Plotly: any;
 
@@ -18,30 +20,76 @@ declare const Plotly: any;
 
 @Injectable()
 export class EvaluateModelComponent implements OnInit {
+
+  metrics: Array<string> = ['TP', 'TN', 'FP', 'FN', 'Epochs', 'train_acc', 'train_loss', 'valid_acc', 'valid_loss'];
+  private _xLabel: string = "Epochs";
+  private _yLabel: string = "train_acc";
+  get xLabel(): string {
+    return this._xLabel;
+  }
+  set xLabel(selection: string) {
+    this._xLabel = selection;
+    this.updateGraph(selection, this.yLabel, "Graph");
+  }
+
+  get yLabel(): string {
+    return this._yLabel;
+  }
+  set yLabel(selection: string) {
+    this._yLabel = selection;
+    this.updateGraph(this.xLabel, selection, "Graph");
+  }
+
+  updateGraph(xaxis:string,yaxis:string, graph:string):void {
+    this.layout = {
+      title: 'Sample Graph',
+      xaxis: {
+        title: xaxis,
+      },
+      yaxis: {
+        title: yaxis,
+      }
+    };
+    let restyle: any = [];
+    xaxis = xaxis.toLowerCase();
+    yaxis = yaxis.toLowerCase();
+    for (var datum of this.contents)
+    {
+      if (this.plot)
+      {
+        restyle.push({x:datum[xaxis],y:datum[yaxis], type:'scatter', name: 'Data Source ' + datum.result_id});
+      }
+    }
+    Plotly.react(graph, restyle, this.layout );
+  }
+
   data:Array<any> = [];
-  layout:Object = {};
+  //layout:Object = {};
   configUrl:String = 'assets/configurations/routes.json';
   options:Object={};
   foo:Number=1;
   contents:any="test";
   plot:any;
+  datasets: any = [];
+  dataset: string='mnist';
+  layout:object = {
+    title: 'Sample Graph',
+    xaxis: {
+      title: this.xLabel,
+    },
+    yaxis: {
+      title: this.yLabel,
+    }
+  };
   constructor(private http: HttpClient) {     
     let data:Array<any> = [];
     
-    this.layout = {
-      title: 'Sample Graph',
-      xaxis: {
-        title: 'Validation Loss',
-      },
-      yaxis: {
-        title: 'Validation Accuracy',
-      }
-    };
+    
 
     this.options= {
       responseType: 'json'
     };
-    var test = this.http.get<ModelResult>('http://localhost:5001/result', this.options).subscribe(
+    var test = this.http.get<ModelResult>('http://134.197.86.47:5001/result', this.options).subscribe(
       data=>
       {
           this.contents=data;
@@ -58,6 +106,7 @@ export class EvaluateModelComponent implements OnInit {
           console.log(error);
       }
   );
+  this.http.get('http://134.197.86.47:5001/getdatasets').subscribe(data => {this.datasets = data; console.log(data);});
     //client.get('/foo', {responseType: 'text'})
   }
 
@@ -83,7 +132,7 @@ export class EvaluateModelComponent implements OnInit {
     };
     this.data.push(DataSource1);
     this.data.push(DataSource2);*/
-    
+
     this.plot = Plotly.newPlot('Graph', this.data, this.layout);
   }
 

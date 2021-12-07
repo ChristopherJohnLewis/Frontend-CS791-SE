@@ -4,6 +4,26 @@
         <div class="center" style="width:800px; margin:0 auto;" id="Graph" #Graph></div>
     </div>
 </body>
+<div class='input-group'>
+  <span class="input-group-text">X Axis</span>
+  <select class="form-select"  [(ngModel)]="xLabel">
+    <option *ngFor="let label of metrics"  >{{label}}</option>
+  </select>
+</div>
+<div class='input-group'>
+  <span class="input-group-text">Y Axis</span>
+  <select class="form-select"  [(ngModel)]="yLabel">
+    <option *ngFor="let label of metrics"  >{{label}}</option>
+  </select>
+</div>
+
+<div class='input-group'>
+  <span class="input-group-text">Dataset ID</span>
+  <select class="form-select"  [(ngModel)]="dataset">
+    <option *ngFor="let dataset of datasets"  >{{dataset}}</option>
+  </select>
+</div>
+
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Dropdown button
@@ -13,5 +33,7 @@
       <li><a class="dropdown-item" href="#">Another action</a></li>
       <li><a class="dropdown-item" href="/createmodel">Something else here</a></li>
     </ul>
+
+
   </div>
 
