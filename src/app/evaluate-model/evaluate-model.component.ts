@@ -119,7 +119,7 @@ export class EvaluateModelComponent implements OnInit {
   }
 
   clicked(){
-    console.log(this.datasetID);
+   this.plot = Plotly.react('Graph', [], []);
     var test = this.http.get<ModelResult>('http://134.197.86.47:5001/result?dataset_id='+this.datasetID, this.options).subscribe(
       data=>
       {

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateModelComponent implements OnInit {
 
   libraries: Array<string> = ["AutoKeras", "Auto-PyTorch"];
-  datasets: Array<string> = ['mnist', 'cats_vs_dogs', 'forest_fires', 'wordnet'];
+  datasets: Array<string> = ['mnist', 'cats_vs_dogs', 'forest_fires', 'wordnet', 'lfw', 'pet_finder','stanford_dogs','tf_flowers',"caltech_birds2010", 'fashion_mnist'];
 
   private _library: string ='AutoKeras';
   public lib: string ='';
@@ -40,7 +40,7 @@ export class CreateModelComponent implements OnInit {
     console.log(this.library);
     console.log(this.epoch);
     console.log("here now yall 21");
-    this.http.post('http://localhost:5000/runmodel', {
+    this.http.post('http://134.197.86.47:5000/runmodel', {
       library: this.library,
       data: this.data, // this will pull from a list of tensorflow datasets
       epochs: this.epoch,
