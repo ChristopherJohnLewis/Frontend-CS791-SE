@@ -34,15 +34,20 @@
     </div>
     <div class='input-group'>
         <span class="input-group-text">Model Type</span>
-        <input class="form-control" type="number" value=0 [(ngModel)]='model_type'>
+        <select class="form-select"  [(ngModel)]="model_type">
+          <option *ngFor="let modeltype of model_types" [value]="modeltype.value"  >{{modeltype.name}}</option>
+        </select>
     </div>
     <div class='input-group'>
         <span class="input-group-text">Tuner</span>
         <input class="form-control" type="text" value='greedy' [(ngModel)]='tuner'>
     </div>
+
     <div class='input-group'>
         <span class="input-group-text">Data Type</span>
-        <input class="form-control" type="number" value=0 [(ngModel)]='data_type'>
+        <select class="form-select"  [(ngModel)]="data_type">
+          <option *ngFor="let datatype of data_types" [value]="datatype.value"  >{{datatype.name}}</option>
+        </select>
     </div>
     
 </div>
