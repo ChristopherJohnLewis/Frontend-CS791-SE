@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelRequest } from 'src/app/api-util/api-interfaces';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subscription, throwError, timer } from 'rxjs';
 
 type names = {
   name: String,
   value: Number
+};
+
+type Job = {
+  uuid: String,
+  state: String
 };
 
 @Component({
@@ -58,9 +64,29 @@ export class CreateModelComponent implements OnInit {
     }).subscribe(data => {console.log(data);});
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.initialize();
+  }
 
   ngOnInit(): void {
   }
+
+  jobUpdate: Observable<number> = timer(0, 2000);
+  jobStates: Array<Job> = [];
+  initialize() : void {
+    this.sub = this.jobUpdate.subscribe((number) => {
+      this.http.get('http://134.197.86.47:5000/jobstates').subscribe(data => {
+        this.jobStates = [];
+        //console.log(data);
+        for (const [k,v] of Object.entries(data)) {
+          let job: Job = {uuid: v.uuid, state: v.state};
+          this.jobStates.push(job);
+        }
+      });
+    });
+  }
+
+  sub: any;
+  
 
 }

@@ -53,5 +53,20 @@
 </div>
 
 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Job UUID</th>
+        <th scope="col">State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jobState of jobStates">
+        <th scope="row">{{jobState.uuid}}</th>
+        <td>{{jobState.state}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 
 <button type="button" class="btn btn-primary" (click)="clicked()" >Generate Models</button>

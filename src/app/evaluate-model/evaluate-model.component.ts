@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModelResult } from '../api-util/api-interfaces';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subscription, throwError, timer } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Xliff } from '@angular/compiler';
 import { update } from 'plotly.js';
+import { ModifierArguments } from '@popperjs/core';
 
 declare const Plotly: any;
 
@@ -158,5 +159,5 @@ export class EvaluateModelComponent implements OnInit {
 
     this.plot = Plotly.newPlot('Graph', this.data, this.layout);
   }
-
+  
 }
