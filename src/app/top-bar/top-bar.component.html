@@ -1,9 +1,16 @@
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
   <span class="navbar-brand mb-0 h1">THURSDAY</span>
-  <ul class="navbar-nav nav nav-pills">
-    <li *ngFor="let items of tabs" class="nav-item">
-        <a style="" id="items.linkId" class="nav-link active" href="{{items.linkId}}"> {{items.linkName}}</a>
-    </li>
+  <ul class="nav navbar-nav nav-pills nav-justified">
+    <li class="nav-item"><a class="nav-link active" routerLink="/" [ngClass]="{ 'active':activeTab==='Authors'}" (click)="changeTab('Authors')"
+      data-toggle="tab"> Authors</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/viewmodel" [ngClass]="{ 'active':activeTab==='View Models'}" (click)="changeTab('View Models')"
+      data-toggle="tab"> View Model</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/createmodel" [ngClass]="{ 'active':activeTab==='Create Models'}" (click)="changeTab('Create Models')"
+      data-toggle="tab"> Create Model</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/evaluatemodel" [ngClass]="{ 'active':activeTab==='Evaluate Models'}" (click)="changeTab('Evaluate Models')"
+      data-toggle="tab"> Evaluate Model</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/settings" [ngClass]="{ 'active':activeTab==='Settings'}" (click)="changeTab('Settings')"
+      data-toggle="tab"> Settings</a></li>
   </ul>
 </nav>

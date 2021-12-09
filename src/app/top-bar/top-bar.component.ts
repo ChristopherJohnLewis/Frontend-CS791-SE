@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
+//Keeps track of tabs, active tab, and can swap active tabs based on onclick events in the .html
 export class TopBarComponent{
 
   tabs = [
@@ -15,12 +16,8 @@ export class TopBarComponent{
     {linkName: "Settings", linkId: "/settings"},
   ];
 
-
+  activeTab = "Authors";
+  changeTab(activeTab:string){
+    this.activeTab = activeTab
+  }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

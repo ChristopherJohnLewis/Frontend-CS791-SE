@@ -23,7 +23,6 @@ import { FormsModule } from '@angular/forms';
       { path: 'viewmodel', component: ViewModelComponent },
       { path: 'createmodel', component: CreateModelComponent },
       { path: 'evaluatemodel', component: EvaluateModelComponent },
-      { path: 'createmodel', component: CreateModelComponent },
       { path: 'settings', component: SettingsComponent },
     ]),
     FormsModule
