@@ -53,7 +53,7 @@ export class CreateModelComponent implements OnInit {
     console.log(this.library);
     console.log(this.epoch);
     console.log("here now yall 21");
-    this.http.post('http://134.197.86.47:5000/runmodel', {
+    this.http.post('http://localhost:5000/runmodel', {
       library: this.library,
       data: this.data, // this will pull from a list of tensorflow datasets
       epochs: this.epoch,
@@ -75,7 +75,7 @@ export class CreateModelComponent implements OnInit {
   jobStates: Array<Job> = [];
   initialize() : void {
     this.sub = this.jobUpdate.subscribe((number) => {
-      this.http.get('http://134.197.86.47:5000/jobstates').subscribe(data => {
+      this.http.get('http://localhost:5000/jobstates').subscribe(data => {
         this.jobStates = [];
         //console.log(data);
         for (const [k,v] of Object.entries(data)) {
