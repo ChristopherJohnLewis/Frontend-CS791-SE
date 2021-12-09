@@ -1,7 +1,6 @@
 <!---Dropdowns for model settings-->
 <!---button for generating models-->
 
-
 <!--    
     library: String;
     data: String; // this will pull from a list of tensorflow datasets
@@ -15,58 +14,100 @@
     data_type: Number; // 0 is image, 1 is text, 2 is structured data
 -->
 <!--https://getbootstrap.com/docs/5.0/layout/grid/-->
-<div class="container">
-<div class="row row-cols-auto form-group">
-    <select class="form-select"  (change)='library = libraryid.value' #libraryid>
-        <option *ngFor="let lib of libraries" [value]='library' >{{lib}}</option>
-    </select>
-    <select class="form-select" (change)='data = datasetid.value' #datasetid>
-        <option *ngFor="let dataset of datasets" [ngValue]='data' >{{dataset}}</option>
-    </select>
-    <div class='input-group'>
-        <span class="input-group-text">Epochs</span>
-        <input class="form-control" type="number" value=10 [(ngModel)]='epoch'>
-    </div>
-    <div class='input-group'>  
-        <span class="input-group-text">Max Trials</span>  
-        <input class="form-control" type="number" value=100 [(ngModel)]='max_trials'>
-    </div>
-    <div class='input-group'>
-        <span class="input-group-text">Model Type</span>
-        <select class="form-select"  [(ngModel)]="model_type">
-          <option *ngFor="let modeltype of model_types" [value]="modeltype.value"  >{{modeltype.name}}</option>
-        </select>
-    </div>
-    <div class='input-group'>
-        <span class="input-group-text">Tuner</span>
-        <input class="form-control" type="text" value='greedy' [(ngModel)]='tuner'>
-    </div>
 
-    <div class='input-group'>
-        <span class="input-group-text">Data Type</span>
-        <select class="form-select"  [(ngModel)]="data_type">
-          <option *ngFor="let datatype of data_types" [value]="datatype.value"  >{{datatype.name}}</option>
-        </select>
-    </div>
-    
-</div>
-</div>
-
-
-<table class="table">
+<br>
+<br>
+<div class="container vw-100">
+  <table class="table table-lgxx align-middle table-fluid caption-top table-bordered">
+    <caption><b>Machine Learning Jobs</b></caption>
     <thead>
       <tr>
+        <th scope="col">Name</th>
         <th scope="col">Job UUID</th>
         <th scope="col">State</th>
+        <th scope="col">Time Elapsed</th>
+
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let jobState of jobStates">
+        <th>Demo Name</th>
         <th scope="row">{{jobState.uuid}}</th>
         <td>{{jobState.state}}</td>
+        <td>Demo Seconds</td>
       </tr>
     </tbody>
   </table>
 
+  <div class="dropdown-lg ">
+    <span class="btn btn-secondary material-icons dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      add
+    </span>
+    <div class="dropdown-menu px-20 py-20">
+      <div class="form-group">
+        <div class="mb-3 mx-auto row">
+          <label for="inputLibrary" class="col-sm-6 col-form-label">Library</label>
+          <div class="col-sm-6">
+            <select class="form-select" (change)='library = libraryid.value' #libraryid>
+              <option *ngFor="let lib of libraries" [value]='library'>{{lib}}</option>
+            </select>
+          </div>
+        </div>
 
-<button type="button" class="btn btn-primary" (click)="clicked()" >Generate Models</button>
+        <div class="mb-3 mx-auto row">
+          <label for="inputDataset" class="col-sm-6 col-form-label">Dataset</label>
+          <div class="col-sm-6">
+            <select class="form-select" (change)='data = datasetid.value' #datasetid>
+              <option *ngFor="let dataset of datasets" [ngValue]='data'>{{dataset}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3 mx-auto row">
+          <label for="inputEpoch" class="col-sm-6 col-form-label">Epoch</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="number" value=10 [(ngModel)]='epoch'>
+          </div>
+        </div>
+
+        <div class="mb-3 mx-auto row">
+          <label for="inputMaxTrials" class="col-sm-6 col-form-label">Max Trails</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="number" value=10 [(ngModel)]='max_trials'>
+          </div>
+        </div>
+
+        <div class="mb-3 mx-auto row">
+          <label for="inputModelType" class="col-sm-6 col-form-label">Model Type</label>
+          <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="model_type">
+              <option *ngFor="let modeltype of model_types" [value]="modeltype.value">{{modeltype.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3 mx-auto row">
+          <label for="inputTuner" class="col-sm-6 col-form-label">Tuner</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" value='greedy' [(ngModel)]='tuner'>
+          </div>
+        </div>
+
+        <div class="mb-3 mx-auto row">
+          <label for="inputDataType" class="col-sm-6 col-form-label">Data Type</label>
+          <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="data_type">
+              <option *ngFor="let datatype of data_types" [value]="datatype.value">{{datatype.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class='mb-auto mx-auto'>
+          <button type="button" class="btn btn-primary col-sm-6 ms-5" (click)="clicked()">Generate Models</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
