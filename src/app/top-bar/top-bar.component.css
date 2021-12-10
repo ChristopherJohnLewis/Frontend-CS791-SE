@@ -12,3 +12,7 @@
 .navbar {
     background-color:rgba(235, 163, 55, 0.979);
 }
+.rightJustified {
+    float: right;
+    color: white;
+}

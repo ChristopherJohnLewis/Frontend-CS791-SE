@@ -12,6 +12,8 @@ import { CreateModelComponent } from './create-model/create-model.component';
 import { EvaluateModelComponent } from './evaluate-model/evaluate-model.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { FormsModule } from '@angular/forms';
       { path: 'createmodel', component: CreateModelComponent },
       { path: 'evaluatemodel', component: EvaluateModelComponent },
       { path: 'settings', component: SettingsComponent },
+      { path: 'login', component: LoginComponent},
+      { path: 'signup', component: SignupComponent},
       { path: '**', component: AuthorsComponent}
     ]),
     FormsModule
@@ -36,6 +40,8 @@ import { FormsModule } from '@angular/forms';
     CreateModelComponent,
     EvaluateModelComponent,
     SettingsComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   bootstrap: [AppComponent],
 })

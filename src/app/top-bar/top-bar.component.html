@@ -21,5 +21,7 @@
             (click)="changeTab('Settings')" data-toggle="tab"> Settings</a></li>
       </ul>
     </div>
+    <li class="nav rightJustified"><a href="/login"><img src="assets/Images/profile.png" width="45" height="45"></a><a class="nav-link rightJustified" href="/login" [ngClass]="{ 'active':activeTab==='login'}"
+      (click)="changeTab('Login')" data-toggle="tab"><font size="+2" style="color: white">Login</font></a></li>
   </div>
 </nav>
