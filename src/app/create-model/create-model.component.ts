@@ -1,3 +1,4 @@
+// Create model component
 import { Component, OnInit } from '@angular/core';
 import { ModelRequest } from 'src/app/api-util/api-interfaces';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +20,7 @@ type Job = {
   styleUrls: ['./create-model.component.css']
 })
 export class CreateModelComponent implements OnInit {
-
+  // initial variables
   libraries: Array<string> = ["AutoKeras", "Auto-PyTorch"];
   datasets: Array<string> = ['mnist', 'cats_vs_dogs', 'forest_fires', 'wordnet', 'lfw', 'pet_finder','stanford_dogs','tf_flowers',"caltech_birds2010", 'fashion_mnist'];
   data_types: Array<names> = [{name:"Image", value: 0}, {name:"Text",value: 1}, {name:"Structured Data", value: 2}];
@@ -48,6 +49,7 @@ export class CreateModelComponent implements OnInit {
   data_type: Number = 0;
   model_type: Number = 0;
   tuner: String = 'Greedy';
+  //expands the dropdown for adding a model to be generated
   public clicked():void{
     console.log(this.data);
     console.log(this.library);
@@ -70,9 +72,10 @@ export class CreateModelComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  //determines how fast we query the backend for jobs
   jobUpdate: Observable<number> = timer(0, 2000);
   jobStates: Array<Job> = [];
+  //initial pulling from backend that then lets us subscribe to that rest API endpoint
   initialize() : void {
     this.sub = this.jobUpdate.subscribe((number) => {
       this.http.get('http://localhost:5000/jobstates').subscribe(data => {

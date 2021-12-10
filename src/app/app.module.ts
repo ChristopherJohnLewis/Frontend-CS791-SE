@@ -14,12 +14,14 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LoginpopupComponent } from './loginpopup/loginpopup.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    //defines which routes/urls connect to which components
     RouterModule.forRoot([
       { path: '', component: AuthorsComponent },
       { path: 'viewmodel', component: ViewModelComponent },
@@ -42,6 +44,7 @@ import { SignupComponent } from './signup/signup.component';
     SettingsComponent,
     LoginComponent,
     SignupComponent,
+    LoginpopupComponent,
   ],
   bootstrap: [AppComponent],
 })

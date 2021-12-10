@@ -14,6 +14,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+// subscribes to router events and shows a loading overlay when navigation starts. Turns off the overlay when navigation finishes
 export class AppComponent {
   public showOverlay = true;
 

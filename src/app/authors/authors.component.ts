@@ -1,3 +1,5 @@
+//Basic .ts file for angular applications
+//This is the authors.ts file
 import { Component, OnInit } from '@angular/core';
 
 @Component({
