@@ -1,1 +1,60 @@
-<p>settings works!</p>
+<br>
+<br>
+
+<body class="mx-auto">
+    <br>
+    <h1>Demo User Settings</h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label for="staticUser" class="col-sm-2 col-form-label">User Name</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticUser" value="Moe Smith">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                        value="burninggpus@acme.com">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Password Settings</h5>
+            <u>
+                <h6>Change Password</h6>
+            </u>
+            <form>
+                <label for="inputPassword5" class="form-label">Password</label>
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" class="form-text">
+                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                    spaces, special characters, or emoji.
+                </div>
+                <button type="submit" class="btn btn-primary">Change Passowrd</button>
+            </form>
+        </div>
+    </div>
+ 
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Theme Settings</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Light Theme
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Dark Theme
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
