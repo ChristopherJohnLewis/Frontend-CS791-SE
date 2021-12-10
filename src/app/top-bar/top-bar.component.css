@@ -8,3 +8,7 @@
 .nav-pills>li+li {
     margin-left: 4px; 
 }
+
+.navbar {
+    background-color:rgba(238, 192, 76, 0.979);
+}
