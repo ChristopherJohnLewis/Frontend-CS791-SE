@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-.divider{
-    width:5px;
+.widthdivider{
+    width:10px;
     height:auto;
     display:inline-block;
 }
