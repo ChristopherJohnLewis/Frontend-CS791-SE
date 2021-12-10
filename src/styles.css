@@ -112,8 +112,8 @@ button:disabled {
 
 app-top-bar {
   width: 100%;
-  height: 68px;
-  background-color: #9c939e;
+  height: 100px;
+  background-color: #be1616ce;
   padding: 16px;
   display: flex;
   flex-direction: row;
