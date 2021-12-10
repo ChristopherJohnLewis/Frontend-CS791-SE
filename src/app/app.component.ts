@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {
   Router,
-  Event as RouterEvent,
+  Event,
+  RouterEvent,
   NavigationStart,
   NavigationEnd,
   NavigationCancel,
@@ -17,13 +18,13 @@ export class AppComponent {
   public showOverlay = true;
 
   constructor(private router: Router) {
-    router.events.subscribe((event: RouterEvent) => {
+    router.events.subscribe((event: Event) => {
       setTimeout( () => {this.navigationInterceptor(event);}, 1000);
     });
   }
 
   // Shows and hides the loading spinner during RouterEvent changes
-  navigationInterceptor(event: RouterEvent): void {
+  navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
       this.showOverlay = true;
     }

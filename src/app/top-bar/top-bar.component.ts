@@ -16,7 +16,7 @@ export class TopBarComponent{
     {linkName: "Settings", linkId: "/settings"},
   ];
 
-  activeTab = "Authors";
+  activeTab = "About Us";
   changeTab(activeTab:string){
     this.activeTab = activeTab
   }
