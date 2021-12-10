@@ -1,29 +1,38 @@
 <body>
-
-    <div class="container" >
-        <div class="center" style="width:800px; margin:0 auto;" id="Graph" #Graph></div>
-    </div>
+  <br>
+  <br>
+  <div class="container">
+    <div class="center" style="width:800px; margin:0 auto;" id="Graph" #Graph></div>
+  </div>
 </body>
-<div class='input-group'>
-  <span class="input-group-text">X Axis</span>
-  <select class="form-select"  [(ngModel)]="xLabel">
-    <option *ngFor="let label of metrics"  >{{label}}</option>
-  </select>
-</div>
-<div class='input-group'>
-  <span class="input-group-text">Y Axis</span>
-  <select class="form-select"  [(ngModel)]="yLabel">
-    <option *ngFor="let label of metrics"  >{{label}}</option>
-  </select>
+
+<div class="mb-3 mx-auto row">
+  <label for="inputXAxis" class="col-sm-6 col-form-label">X Axis</label>
+  <div class="col-sm-6">
+    <select class="form-select" [(ngModel)]="xLabel">
+      <option *ngFor="let label of metrics">{{label}}</option>
+    </select>
+  </div>
 </div>
 
-<div class='input-group'>
-  <span class="input-group-text">Dataset ID</span>
-  <select class="form-select"  [(ngModel)]="datasetID">
-    <option *ngFor="let dataset of datasets" [value]='dataset[0]'  >{{dataset[1]}}</option>
-  </select>
+<div class="mb-3 mx-auto row">
+  <label for="inputYAxis" class="col-sm-6 col-form-label">Y Axis</label>
+  <div class="col-sm-6">
+    <select class="form-select" [(ngModel)]="yLabel">
+      <option *ngFor="let label of metrics">{{label}}</option>
+    </select>
+  </div>
 </div>
+
+<div class="mb-3 mx-auto row">
+  <label for="inputDataset" class="col-sm-6 col-form-label">Dataset</label>
+  <div class="col-sm-6">
+    <select class="form-select" [(ngModel)]="datasetID">
+      <option *ngFor="let dataset of datasets" [value]='dataset[0]'>{{dataset[1]}}</option>
+    </select>
+  </div>
+</div>
+
 
 <br>
-<button type="button" class="btn btn-primary" (click)="clicked()" >Update Dataset</button>
-
+<button type="button" class="btn btn-primary" (click)="clicked()">Update Dataset</button>

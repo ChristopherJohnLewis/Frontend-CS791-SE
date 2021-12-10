@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TopBarComponent{
 
   tabs = [
-    {linkName: "Authors", linkId: "/"},
+    {linkName: "About Us", linkId: "/"},
     {linkName: "View Model", linkId: "/viewmodel"},
     {linkName: "Create Model", linkId: "/createmodel"},
     {linkName: "Evaluate Model", linkId: "/evaluatemodel"},

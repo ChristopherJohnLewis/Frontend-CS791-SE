@@ -43,7 +43,7 @@ export class EvaluateModelComponent implements OnInit {
 
   updateGraph(xaxis:string,yaxis:string, graph:string):void {
     this.layout = {
-      title: 'Sample Graph',
+      title: '<b>Sample Graph</b>',
       xaxis: {
         title: xaxis,
       },
@@ -76,7 +76,7 @@ export class EvaluateModelComponent implements OnInit {
   datasetID: number = 1;
 
   layout:object = {
-    title: 'Sample Graph',
+    title: '<b>Sample Graph</b>',
     xaxis: {
       title: this.xLabel,
     },
