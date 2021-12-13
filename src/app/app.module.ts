@@ -14,7 +14,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { LoginpopupComponent } from './loginpopup/loginpopup.component';
+
 
 @NgModule({
   imports: [
@@ -44,7 +44,6 @@ import { LoginpopupComponent } from './loginpopup/loginpopup.component';
     SettingsComponent,
     LoginComponent,
     SignupComponent,
-    LoginpopupComponent,
   ],
   bootstrap: [AppComponent],
 })
